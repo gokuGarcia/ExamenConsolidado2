@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\OrganizadorController;
 use App\Http\Controllers\ParticipacionController;
+use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['auth'])->group(function () {

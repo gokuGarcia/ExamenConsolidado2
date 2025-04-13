@@ -3,10 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Participaciones extends Model
 {
+    use HasFactory;
+
+    protected $table = 'participaciones';
+
     protected $fillable = ['evento_id', 'organizador_id', 'rol'];
+
 
     public function evento()
     {
