@@ -28,8 +28,13 @@ class EventoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Nombre' => 'required|unique:_eventos,Nombre',
+            'Nombre' => 'required|unique:_eventos,Nombre|max:50',
+            'Descripcion' => 'nullable|string',
+            'Fecha_Inicio' => 'nullable|date',
+            'Fecha_Fin' => 'nullable|date|after_or_equal:Fecha_Inicio',
+            'Ubicacion' => 'nullable|string|max:100',
         ]);
+    
         
     }
 
