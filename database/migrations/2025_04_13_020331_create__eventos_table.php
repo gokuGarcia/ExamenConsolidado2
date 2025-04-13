@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('_eventos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('Nombre', 50)->unique();
             $table->text('Descripcion')->nullable();
-            $table->dataTime('Fecha_Inicio')->nullable();
-            $table->dateTime('Fecha_Fin')->nullable();
+            $table->dateTime('Fecha_Inicio')->nullable(); // Corregido
+            $table->dateTime('Fecha_Fin')->nullable();    // Corregido
             $table->string('Ubicacion', 100)->nullable();
+            $table->timestamps();
         });
     }
 

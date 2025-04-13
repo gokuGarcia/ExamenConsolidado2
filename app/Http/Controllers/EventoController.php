@@ -28,17 +28,23 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-          $request->validate([
-        'Nombre' => 'required|unique:_eventos,Nombre|max:50',
-        'Descripcion' => 'nullable|string',
-        'Fecha_Inicio' => 'nullable|date',
-        'Fecha_Fin' => 'nullable|date|after_or_equal:Fecha_Inicio',
-        'Ubicacion' => 'nullable|string|max:100',
-    ]);
-
-    Eventos::create($request->all());
+        // Validar los datos enviados por el usuario
+        $validatedData = $request->validate([
+            'Nombre' => 'required|unique:eventos,Nombre|max:50',
+            'Descripcion' => 'nullable|string',
+            'Fecha_Inicio' => 'nullable|date',
+            'Fecha_Fin' => 'nullable|date|after_or_equal:Fecha_Inicio',
+            'Ubicacion' => 'nullable|string|max:100',
+        ]);
     
-        
+        // Crear el evento en la base de datos
+        $evento = Eventos::create($validatedData);
+    
+        // Devolver una respuesta JSON clara
+        return response()->json([
+            'message' => 'Evento creado exitosamente',
+            'evento' => $evento
+        ], 201);
     }
 
     /**
