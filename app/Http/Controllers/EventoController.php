@@ -27,7 +27,10 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'Nombre' => 'required|unique:_eventos,Nombre',
+        ]);
+        
     }
 
     /**
