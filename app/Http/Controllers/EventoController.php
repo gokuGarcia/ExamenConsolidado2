@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Eventos;
 
 class EventoController extends Controller
 {
@@ -27,13 +28,15 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'Nombre' => 'required|unique:_eventos,Nombre|max:50',
-            'Descripcion' => 'nullable|string',
-            'Fecha_Inicio' => 'nullable|date',
-            'Fecha_Fin' => 'nullable|date|after_or_equal:Fecha_Inicio',
-            'Ubicacion' => 'nullable|string|max:100',
-        ]);
+          $request->validate([
+        'Nombre' => 'required|unique:_eventos,Nombre|max:50',
+        'Descripcion' => 'nullable|string',
+        'Fecha_Inicio' => 'nullable|date',
+        'Fecha_Fin' => 'nullable|date|after_or_equal:Fecha_Inicio',
+        'Ubicacion' => 'nullable|string|max:100',
+    ]);
+
+    Eventos::create($request->all());
     
         
     }
