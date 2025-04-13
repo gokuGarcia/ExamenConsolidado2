@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('participaciones', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('evento_id')->constrained()->onDelete('cascade');
+            $table->foreignId('organizador_id')->constrained()->onDelete('cascade');
+            $table->string('rol');
             $table->timestamps();
         });
     }
