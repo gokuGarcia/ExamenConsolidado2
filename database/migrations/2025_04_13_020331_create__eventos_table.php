@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre', 50)->unique();
+            $table->string('Nombre', 50);
             $table->text('Descripcion')->nullable();
             $table->dateTime('Fecha_Inicio')->nullable(); // Corregido
             $table->dateTime('Fecha_Fin')->nullable();    // Corregido
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_eventos');
+        Schema::dropIfExists('eventos');
     }
 };

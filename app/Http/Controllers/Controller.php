@@ -1,11 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\Models\Eventos;
 
-abstract class Controller extends \Illuminate\Routing\Controller
+class Controller extends BaseController
 {
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
     public function __construct()
     {
        $this->middleware('auth');
@@ -51,9 +58,7 @@ abstract class Controller extends \Illuminate\Routing\Controller
             'Ubicacion' => 'required|string|max:255',
         ]);
 
-        $evento->update($validated);
-
-        return redirect()->route('eventos.index')->with('success', 'Evento actualizado exitosamente.');
+       
     }
     public function destroy(Eventos $evento)
     {

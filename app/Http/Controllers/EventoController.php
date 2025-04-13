@@ -12,7 +12,8 @@ class EventoController extends Controller
      */
     public function index()
     {
-        //
+        $eventos = Eventos::all();
+        return view('eventos.index', compact('eventos'));
     }
 
     /**
@@ -20,7 +21,7 @@ class EventoController extends Controller
      */
     public function create()
     {
-        //
+        return view('eventos.create');
     }
 
     /**
@@ -28,54 +29,60 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        // Validar los datos enviados por el usuario
-        $validatedData = $request->validate([
-            'Nombre' => 'required|unique:eventos,Nombre|max:50',
-            'Descripcion' => 'nullable|string',
-            'Fecha_Inicio' => 'nullable|date',
-            'Fecha_Fin' => 'nullable|date|after_or_equal:Fecha_Inicio',
-            'Ubicacion' => 'nullable|string|max:100',
+        $validated = $request->validate([
+            'Nombre' => 'required|string|max:255',
+            'Descripcion' => 'required|string|max:255',
+            'Fecha_Inicio' => 'required|date',
+            'Fecha_Fin' => 'required|date',
+            'Ubicacion' => 'required|string|max:255',
         ]);
-    
-        // Crear el evento en la base de datos
-        $evento = Eventos::create($validatedData);
-    
-        // Devolver una respuesta JSON clara
-        return response()->json([
-            'message' => 'Evento creado exitosamente',
-            'evento' => $evento
-        ], 201);
+
+        Eventos::create($validated);
+
+        return redirect()->route('eventos.index')->with('success', 'Evento creado exitosamente.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Eventos $evento)
     {
-        //
+        return view('eventos.show', compact('evento'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Eventos $evento)
     {
-        //
+        return view('eventos.edit', compact('evento'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Eventos $evento)
     {
-        //
+        $validated = $request->validate([
+            'Nombre' => 'required|string|max:255',
+            'Descripcion' => 'required|string|max:255',
+            'Fecha_Inicio' => 'required|date',
+            'Fecha_Fin' => 'required|date',
+            'Ubicacion' => 'required|string|max:255',
+        ]);
+
+        $evento->update($validated);
+
+        return redirect()->route('eventos.index')->with('success', 'Evento actualizado exitosamente.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Eventos $evento)
     {
-        //
+        $evento->delete();
+
+        return redirect()->route('eventos.index')->with('success', 'Evento eliminado exitosamente.');
     }
 }
