@@ -89,19 +89,8 @@ Carpetas adicionales para las vistas de eventos, organizadores y participaciones
 Los estilos personalizados están en resources/css y se compilan en public/css.
 
 -----------------------------------------------------------------------
-Library_Management_System/
-├── app/
-│   ├── Http/
-│   │   ├── Controllers/
-│   │   └── Requests/
-│   ├── Models/
-├── database/
-│   └── migrations/
-├── resources/
-│   └── views/
-├── routes/
-│   └── web.php
-├── .env
+MEGD
+STVQ
 ├── composer.json
 └── README.md
 
