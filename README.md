@@ -90,8 +90,5 @@ Los estilos personalizados están en resources/css y se compilan en public/css.
 
 -----------------------------------------------------------------------
 MEGD
-STVQ
-├── composer.json
-└── README.md
 
 
