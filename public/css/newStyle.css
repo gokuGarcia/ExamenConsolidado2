@@ -1,0 +1,50 @@
+/* ICONO DENTRO DE INPUT */
+.form-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #6b7280; /* gris moderno */
+    font-size: 1rem;
+}
+
+/* CONTENEDOR DE INPUT CON ICONO */
+.input-group-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-group-icon input,
+.input-group-icon select {
+    padding-left: 2.2rem;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    height: 2.5rem;
+}
+
+/* BOTÓN PEQUEÑO PERSONALIZADO */
+.btn-sm-custom {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    font-weight: 500;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-sm-custom:hover {
+    background-color: #1d4ed8;
+}
+
+/* TARJETA GENERAL */
+.card-style {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    background-color: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
