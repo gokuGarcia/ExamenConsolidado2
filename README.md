@@ -55,7 +55,7 @@ php artisan migrate
 
 npm run dev
 
-
+-------------------------------------------------------------------------------------------
 
 Estructura del Proyecto:
 
