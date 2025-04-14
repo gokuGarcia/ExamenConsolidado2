@@ -1,0 +1,63 @@
+body {
+    background: linear-gradient(135deg, #0077b6, #023e8a);
+    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.welcome-card {
+    background-color: #ffffff;
+    color: #0f172a;
+    border-radius: 1.5rem;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    max-width: 680px;
+    width: 100%;
+    text-align: center;
+}
+
+.welcome-title {
+    font-size: 2rem;
+    color: #0077b6;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.welcome-subtitle {
+    color: #475569;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.btn-custom {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+}
+
+.btn-primary-custom {
+    background-color: #0077b6;
+    color: #ffffff;
+}
+
+.btn-primary-custom:hover {
+    background-color: #023e8a;
+}
+
+.btn-outline-dark {
+    background-color: transparent;
+    color: #1e293b;
+    border: 2px solid #1e293b;
+}
+
+.btn-outline-dark:hover {
+    background-color: #1e293b;
+    color: #ffffff;
+}
